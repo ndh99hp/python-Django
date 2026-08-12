@@ -1,0 +1,21 @@
+<div style="background-color: #343a40; padding: 20px; height: 100vh; color: white;">
+    <h3 style="color: #ffc107;">Danh mục quản lý</h3>
+    <ul style="list-style-type: none; padding: 0; line-height: 2;">
+        <li>
+            <a href="{% url 'list_product' %}" style="color: white; text-decoration: none;">
+                📦 Danh sách sản phẩm
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'add_product' %}" style="color: white; text-decoration: none;">
+                ➕ Thêm sản phẩm mới
+            </a>
+        </li>
+        <li>
+            <!-- ĐÃ CẬP NHẬT LINK ĐƠN HÀNG -->
+            <a href="{% url 'order_list' %}" style="color: white; text-decoration: none;">
+                🛒 Quản lý đơn hàng
+            </a>
+        </li>
+    </ul>
+</div>

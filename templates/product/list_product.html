@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>Danh sách sản phẩm</h2>
+        <a href="{% url 'add_product' %}" style="padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+            + Thêm sản phẩm mới
+        </a>
+    </div>
+    <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+        <thead style="background-color: #f4f4f4; text-align: left;">
+            <tr>
+                <th style="padding: 12px; border: 1px solid #ddd;">ID</th>
+                <th style="padding: 12px; border: 1px solid #ddd;">Hình ảnh</th>
+                <th style="padding: 12px; border: 1px solid #ddd;">Tên sản phẩm</th>
+                <th style="padding: 12px; border: 1px solid #ddd;">Giá</th>
+                <th style="padding: 12px; border: 1px solid #ddd;">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in products %}
+            <tr>
+                <td style="padding: 12px; border: 1px solid #ddd;">{{ p.id }}</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {% if p.image %}
+                        <img src="{{ p.image.url }}" alt="{{ p.title }}" style="width: 80px; height: 80px; object-fit: cover;">
+                    {% else %}
+                        <span style="color: #999;">Không có ảnh</span>
+                    {% endif %}
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">{{ p.title }}</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">${{ p.price }}</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    <a href="#" style="color: green; margin-right: 10px;">Sửa</a>
+                    <a href="#" style="color: red;">Xóa</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" style="padding: 12px; text-align: center;">Chưa có sản phẩm nào trong hệ thống!</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

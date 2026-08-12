@@ -1,0 +1,13 @@
+body {
+    background-color: blue  ; 
+    font-family: Arial;
+}
+.box-test {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 50%;
+    margin: 50px auto;
+}
