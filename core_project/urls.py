@@ -1,16 +1,22 @@
 from django.contrib import admin
-from django.urls import path
-from app1 import views
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import render 
+
+# Chuyển tạm hàm trang chủ ra đây vì nó là trang chung của cả hệ thống
+def home_view(request):
+    return render(request, 'home.html')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home_view, name='home'), 
-    path('danh-sach/', views.list_product_view, name='list_product'),
-    #url product va don hang
-    path('them-san-pham/', views.add_product_view, name='add_product'),
-    path('don-hang/', views.order_view, name='order_list'),
+    path('', home_view, name='home'), 
+    
+    # LUẬT CHỈ ĐƯỜNG: Bất cứ đường link nào bắt đầu bằng 'shop/' 
+    # thì hãy chuyển hết cho file urls.py của app product xử lý!
+    path('shop/', include('product.urls')), 
 ]
-# file anh
+
+# Cấu hình đường dẫn ảnh
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

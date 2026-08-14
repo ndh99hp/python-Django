@@ -7,15 +7,11 @@
     <title>Quản lý Sản phẩm - Django</title>
 </head>
 <body style="margin: 0; font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh;">
-    #header
     {% include 'header.html' %}
-    #chia thanh 2 cot 2 ben
     <div style="display: flex; flex: 1;">
-        #menu ben trai 
         <div style="width: 250px;">
             {% include 'menuLeft.html' %}
         </div>
-        #noi dung ben phai
         <div style="flex: 1; padding: 30px;">
             {% block content %}
 
@@ -23,7 +19,6 @@
         </div>
         
     </div>
-    #footer
     {% include 'footer.html' %}
 
 </body>
