@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <h2 style="text-align: center;">Đăng ký tài khoản</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; font-weight: bold; cursor: pointer;">
+            Đăng ký
+        </button>
+    </form>
+    <p style="text-align: center; margin-top: 15px;">
+        Đã có tài khoản? <a href="{% url 'user_login' %}" style="color: #007bff;">Đăng nhập</a>
+    </p>
+</div>
+{% endblock %}
