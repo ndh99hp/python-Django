@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'product',
+    'users',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,3 +65,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#chuyen huong cho login va logout cua bai 11
+LOGIN_URL = '/users/login/'#chua login vao thi back ve
+LOGIN_REDIRECT_URL = '/'#login thanh cong thi qua day
+LOGOUT_REDIRECT_URL = '/users/login/'#sau khi logout
