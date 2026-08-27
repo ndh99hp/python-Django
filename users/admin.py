@@ -1,3 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import CustomUser, Country
+#them 2 bang usser va country
+admin.site.register(CustomUser)
+admin.site.register(Country)
